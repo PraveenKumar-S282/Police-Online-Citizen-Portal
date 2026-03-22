@@ -1,0 +1,188 @@
+.mp-page {
+    padding: 2rem 2rem 4rem;
+    min-height: 100vh;
+}
+
+.mp-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.mp-controls .search-bar-container {
+    max-width: 500px;
+    margin: 0;
+}
+
+.mp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.person-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.person-img {
+    height: 300px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.person-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.person-card:hover .person-img img {
+    transform: scale(1.1);
+}
+
+.person-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.person-card:hover .person-overlay {
+    opacity: 1;
+}
+
+.btn-view-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    color: #000;
+    padding: 0.6rem 1rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.person-info {
+    padding: 1.5rem;
+}
+
+.person-info h3 {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.p-meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.p-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.p-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.p-date strong {
+    color: var(--danger);
+    letter-spacing: 1px;
+}
+
+.mp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.file-box-lite {
+    padding: 2.5rem;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.v-btn-lite {
+    background: var(--secondary);
+    color: #000;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.mp-badge {
+    background: rgba(250, 204, 21, 0.1);
+    border: 1px solid rgba(250, 204, 21, 0.2);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mp-badge span {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+}
+
+.mp-badge strong {
+    font-size: 2rem;
+    color: var(--secondary);
+    font-family: var(--font-heading);
+}
+
+.report-form-card {
+    margin-bottom: 4rem;
+}
+
+.report-missing-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.em-card-mini {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 3rem;
+    border-color: var(--secondary);
+    background: rgba(250, 204, 21, 0.05);
+}
+
+.em-card-mini h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+}
+
+.em-card-mini p {
+    color: var(--text-muted);
+}

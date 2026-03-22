@@ -1,0 +1,139 @@
+.profile-page {
+    padding: 2rem 2rem 4rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.profile-card {
+    width: 100%;
+    max-width: 600px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(250, 204, 21, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--secondary);
+}
+
+.profile-title h1 {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+}
+
+.detail-item svg {
+    color: var(--secondary);
+}
+
+.detail-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-item label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+.detail-item span {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.profile-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.profile-btn:hover {
+    border-color: var(--secondary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.profile-btn div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-btn svg:last-child {
+    transition: transform 0.3s ease;
+}
+
+.profile-btn:hover svg:last-child {
+    transform: translateX(5px);
+}
+
+.highlight {
+    background: rgba(250, 204, 21, 0.1);
+    border-color: rgba(250, 204, 21, 0.3);
+}
+
+.highlight:hover {
+    background: rgba(250, 204, 21, 0.2);
+}
+
+.loader, .error {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}

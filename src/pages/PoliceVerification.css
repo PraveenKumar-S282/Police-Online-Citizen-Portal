@@ -1,0 +1,120 @@
+.pv-page {
+    padding: 2rem 2rem 4rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.pv-card {
+    width: 100%;
+    max-width: 800px;
+}
+
+.pv-steps {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
+    width: fit-content;
+}
+
+.pv-step {
+    padding: 0.5rem 1.5rem;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pv-step.active {
+    background: #fff;
+    color: #000;
+}
+
+.pv-type-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.type-box {
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.type-box svg {
+    color: var(--secondary);
+    transition: transform 0.3s ease;
+}
+
+.type-box:hover {
+    border-color: var(--secondary);
+}
+
+.type-box:hover svg {
+    transform: scale(1.1);
+}
+
+.type-box h3 {
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.type-box p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.pv-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pv-badge {
+    background: rgba(250, 204, 21, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border: 1px solid rgba(250, 204, 21, 0.2);
+}
+
+.pv-badge span {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+}
+
+.pv-badge strong {
+    font-size: 2rem;
+    color: var(--secondary);
+    font-family: var(--font-heading);
+}
+
+.success-actions {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .pv-type-grid {
+        grid-template-columns: 1fr;
+    }
+}
