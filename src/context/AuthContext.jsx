@@ -34,12 +34,12 @@ export const AuthProvider = ({ children }) => {
         setUser(data.user);
         localStorage.setItem('currentUser', JSON.stringify(data.user));
         localStorage.setItem('token', data.token);
-        return true;
+        return { success: true };
       }
-      return false;
+      return { success: false, message: data.message || 'Invalid email or password.' };
     } catch (err) {
-      console.error(err);
-      return false;
+      console.error('Login error:', err);
+      return { success: false, message: 'Server connection error. Please make sure the backend is running.' };
     }
   };
 

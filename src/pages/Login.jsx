@@ -20,11 +20,12 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const isSuccess = await login(formData.email, formData.password);
-    if (isSuccess) {
+    setError('');
+    const result = await login(formData.email, formData.password);
+    if (result.success) {
       navigate('/');
     } else {
-      setError('Invalid email or password. Please register if you haven\'t.');
+      setError(result.message);
     }
   };
 
