@@ -7,7 +7,7 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/Police-Online-Citizen-Portal">
+    <BrowserRouter basename={import.meta.env.VITE_BASE_PATH || "/"}>
       <AuthProvider>
         <App />
       </AuthProvider>
