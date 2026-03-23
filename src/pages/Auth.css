@@ -133,7 +133,7 @@
   width: 100%;
   background: rgba(15, 23, 42, 0.6);
   border: 1px solid var(--border);
-  padding: 0.85rem 1rem 0.85rem 3.5rem;
+  padding: 0.85rem 1rem;
   border-radius: 8px;
   color: #fff;
   font-size: 0.95rem;
@@ -141,13 +141,25 @@
   transition: all 0.3s ease;
 }
 
-.input-wrapper input:not(:placeholder-shown) {
-  padding-left: 1rem;
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+  z-index: 10;
 }
 
-.input-wrapper input:not(:placeholder-shown) ~ .input-icon {
-  opacity: 0;
-  transform: translateY(-50%) translateX(-20px);
+.password-toggle:hover {
+  color: var(--secondary);
 }
 
 .input-wrapper input:focus {

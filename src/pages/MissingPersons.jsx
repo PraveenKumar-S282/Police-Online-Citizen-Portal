@@ -21,7 +21,7 @@ const MissingPersons = () => {
 
     const fetchPersons = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/missing-persons');
+            const res = await fetch('/api/missing-persons');
             const data = await res.json();
             if (data.success) {
                 setPersonsList(data.persons);
@@ -68,7 +68,7 @@ const MissingPersons = () => {
             formData.append('description', formInput.description);
             formData.append('photo', fileInput.files[0]);
 
-            const res = await fetch('http://localhost:5000/api/missing-persons', {
+            const res = await fetch('/api/missing-persons', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`

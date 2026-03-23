@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Shield, Mail, Lock, User, IdCard, Phone, AlertCircle } from 'lucide-react';
+import { Shield, Mail, Lock, User, IdCard, Phone, AlertCircle, Eye, EyeOff } from 'lucide-react';
 import { AuthContext } from '../context/AuthContext';
 import './Auth.css';
 
@@ -16,6 +16,8 @@ const Register = () => {
     password: '',
     confirmPassword: ''
   });
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -61,7 +63,6 @@ const Register = () => {
               <label>Full Name (As per Aadhar)</label>
               <div className="input-wrapper">
                 <input type="text" name="fullName" placeholder="Enter full name" value={formData.fullName} onChange={handleChange} required />
-                <User size={18} className="input-icon" />
               </div>
             </div>
 
@@ -69,15 +70,21 @@ const Register = () => {
               <label>Phone Number</label>
               <div className="input-wrapper">
                 <input type="tel" name="phone" placeholder="10-digit mobile number" value={formData.phone} onChange={handleChange} required />
-                <Phone size={18} className="input-icon" />
               </div>
             </div>
 
             <div className="input-group">
               <label>Email Address</label>
               <div className="input-wrapper">
-                <input type="email" name="email" placeholder="example@email.com" value={formData.email} onChange={handleChange} required />
-                <Mail size={18} className="input-icon" />
+                <input 
+                  type="email" 
+                  name="email" 
+                  placeholder="example@email.com" 
+                  value={formData.email} 
+                  onChange={handleChange} 
+                  autoCapitalize="none"
+                  required 
+                />
               </div>
             </div>
 
@@ -85,23 +92,36 @@ const Register = () => {
               <label>Aadhar / Identity Number</label>
               <div className="input-wrapper">
                 <input type="text" name="aadharNumber" placeholder="12-digit UID" value={formData.aadharNumber} onChange={handleChange} required />
-                <IdCard size={18} className="input-icon" />
               </div>
             </div>
 
             <div className="input-group">
               <label>Create Password</label>
               <div className="input-wrapper">
-                <input type="password" name="password" placeholder="At least 8 characters" value={formData.password} onChange={handleChange} required />
-                <Lock size={18} className="input-icon" />
+                <input type={showPassword ? "text" : "password"} name="password" placeholder="At least 8 characters" value={formData.password} onChange={handleChange} required />
+                <button 
+                  type="button" 
+                  className="password-toggle"
+                  onClick={() => setShowPassword(!showPassword)}
+                  tabIndex="-1"
+                >
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
               </div>
             </div>
 
             <div className="input-group">
               <label>Confirm Password</label>
               <div className="input-wrapper">
-                <input type="password" name="confirmPassword" placeholder="Re-enter password" value={formData.confirmPassword} onChange={handleChange} required />
-                <Lock size={18} className="input-icon" />
+                <input type={showConfirmPassword ? "text" : "password"} name="confirmPassword" placeholder="Re-enter password" value={formData.confirmPassword} onChange={handleChange} required />
+                <button 
+                  type="button" 
+                  className="password-toggle"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  tabIndex="-1"
+                >
+                  {showConfirmPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
               </div>
             </div>
           </div>

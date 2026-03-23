@@ -4,5 +4,18 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: process.env.VITE_BASE_PATH || "/Police-Online-Citizen-Portal"
+  base: process.env.VITE_BASE_PATH || "/Police-Online-Citizen-Portal",
+  server: {
+    host: true, // Internal/External access
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:5000',
+        changeOrigin: true
+      },
+      '/uploads': {
+        target: 'http://127.0.0.1:5000',
+        changeOrigin: true
+      }
+    }
+  }
 })

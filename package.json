@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"npm run frontend\" \"npm run server\"",
+    "frontend": "vite",
     "server": "npm start --prefix backend",
-    "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
+    "dev:single": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

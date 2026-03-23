@@ -11,7 +11,7 @@ const Profile = () => {
         const fetchProfile = async () => {
             const token = localStorage.getItem('token');
             try {
-                const res = await fetch('http://localhost:5000/api/profile', {
+                const res = await fetch('/api/profile', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const data = await res.json();

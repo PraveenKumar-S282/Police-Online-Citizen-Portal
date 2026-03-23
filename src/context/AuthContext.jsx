@@ -8,18 +8,25 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem('currentUser');
+    const isMobile = window.innerWidth <= 768 || /Mobi|Android/i.test(navigator.userAgent);
+
     if (loggedInUser) {
       setUser(JSON.parse(loggedInUser));
+    } else if (isMobile) {
+      // Automatic Login Bypass for Mobile
+      const guestUser = { id: 100, fullName: 'Guest Mobile', email: 'mobile@guest.com', isGuest: true };
+      setUser(guestUser);
+      localStorage.setItem('currentUser', JSON.stringify(guestUser));
     }
     setLoading(false);
   }, []);
 
   const login = async (email, password) => {
     try {
-      const res = await fetch('http://localhost:5000/api/login', {
+      const res = await fetch('/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: email.trim().toLowerCase(), password }),
       });
       const data = await res.json();
       
@@ -38,10 +45,10 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      const res = await fetch('http://localhost:5000/api/register', {
+      const res = await fetch('/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData),
+        body: JSON.stringify({ ...userData, email: userData.email.trim().toLowerCase() }),
       });
       const data = await res.json();
       return data;
